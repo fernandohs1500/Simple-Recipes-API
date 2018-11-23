@@ -14,7 +14,7 @@ class AuthController extends MainController
     public function __construct()
     {
         parent::__construct();
-        $this->model = $this->userModel; //Dependency Injection
+        $this->model = $this->userModel; //TO DO
     }
 
 

@@ -11,7 +11,7 @@ class RecipesController extends MainController implements TokenAuthenticatedCont
     public function __construct()
     {
         parent::__construct();
-        $this->model = $this->recipeModel; //Dependency Injection
+        $this->model = $this->recipeModel; //TO DO
     }
 
     /**

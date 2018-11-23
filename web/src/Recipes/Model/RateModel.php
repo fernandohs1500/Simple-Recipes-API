@@ -13,7 +13,7 @@ class RateModel extends MainModel implements IRate
 
     public function __construct($year = null) {
         parent::__construct();
-        $this->rcModel = $this->recipeModel; //Dependency Injection
+        $this->rcModel = $this->recipeModel; //TO DO
         $this->conn = Connection::getInstance()->getConnection();
     }
 

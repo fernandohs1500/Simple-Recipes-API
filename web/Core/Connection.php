@@ -6,17 +6,17 @@ use Doctrine\DBAL\Configuration;
 
 class Connection
 {
-    private static $_instance;
-    private $_connection;
+    private static $instance;
+    private $connection;
 
     //Constructor
     private function __construct()
     {
         $config = new Configuration();
         $connectionParams = array(
-            'dbname' => 'hellofresh',
-            'user' => 'hellofresh',
-            'password' => 'hellofresh',
+            'dbname' => 'recipetest',
+            'user' => 'root',
+            'password' => '',
             'host' => 'postgres',
             'port' => '5432',
             'driver' => 'pdo_pgsql'
@@ -26,18 +26,14 @@ class Connection
     }
 
     public static function getInstance() {
-        if(!self::$_instance) { // If no instance then make one
-            self::$_instance = new self();
+        if(!self::$instance) { // If no instance then make one
+            self::$instance = new self();
         }
-        return self::$_instance;
+        return self::$instance;
     }
 
-    // Magic method clone is empty to prevent duplication of connection
-    private function __clone() {}
-    // Get mysqli connection
-
     public function getConnection() {
-        return $this->_connection;
+        return $this->connection;
     }
 
 }

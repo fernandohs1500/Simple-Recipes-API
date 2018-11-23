@@ -11,7 +11,7 @@ class RatesController extends MainController
     public function __construct()
     {
         parent::__construct();
-        $this->model = $this->rateModel; //Dependency Injection
+        $this->model = $this->rateModel; //TO DO
     }
 
     /*

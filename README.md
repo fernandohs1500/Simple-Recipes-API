@@ -51,13 +51,6 @@ INSTALLING
 ==============
 
 1 - Clone this repository.
-- Checkout the branch called `dev`
-
-        cd Docker/fernandohs1500-api-test/web
-        git checkout -b dev
-        
-- Run `docker-compose up -d` to start the development environment.  
-                
 
 2 - Run composer 
 
@@ -66,7 +59,7 @@ INSTALLING
 
 - Visit `http://localhost` to see the contents of the web container and develop your application.
 
-2 - Create Database Tables:
+2 - Create Database in DDL FILE:
 
 - [DDL_HELLOFRESH.TXT](https://github.com/fernandohs1500/todolist/files/2569632/DDL_HELLOFRESH.TXT)
         
@@ -82,12 +75,11 @@ Comands
 
 Unit Test:
     
-    $ cd Docker/fernandohs1500-api-test/web
+    $ cd web
     $ ./vendor/bin/phpunit --bootstrap vendor/autoload.php Test/
     
 Generate API/DOC
     
-    $ cd Docker/fernandohs1500-api-test
     $ apidoc -i web/src/Recipes/Controller/ -o api-doc/
 
 
@@ -173,6 +165,46 @@ Result:
 ![25](https://user-images.githubusercontent.com/1281429/48314989-0aa30880-e5b8-11e8-8203-506b59a4e105.png)
 Result:
 ![26](https://user-images.githubusercontent.com/1281429/48314990-0aa30880-e5b8-11e8-9052-907663968a37.png)
+
+
+NEXT STEPS:
+
+**List of libraries used:**
+
+**Symfony - Dispatcher, Routing**
+I use some Symfony libs to impement the basic core of a Restfull Server, i choose symfony libs because most of the modules are unplugged.
+
+**Firebase - JWT** 
+ I use this lib to implement the authentication of some services, I choose this lib because it's simple and unplugged and widely used.
+
+**Doctrine - DBAL**
+I choose this lib because is a powerful database abstraction layer, simple and unplugged.
+
+**Pimple - Dependency Injection** 
+ I choose this lib because is a small Dependency Injection Container for PHP.
+
+**Monolog - Log**
+I choose this because is a established and simple lib for logs.
+
+**PHP UNIT / GUZZLE - TESTS**
+I choose use GUZZLE with PHPUNIT, I use GUZZLE  as HTTPCLIENT to test my endpoints, it's a simple and powerful lib.
+Another change I would do, is use a separate database just to run the tests.
+
+**APIDOCJS - Documentation API**
+I Choose this js lib because it's so simple to install and useful for create apis docs according to block comments.
+I decide not use phpdocumentor, because it generate a lot of code and has lots of dependencies.
+
+**Next Steps:**
+I didn't have time to do all the things i wanted in the project. Next steps:
+
+- I would implement some kind of migration script. Ex. Doctrine/Migration LIB
+- Create a script to install the application in one line
+- Make more Tests, to coverage all the code.
+- Use a separated database to run Unit Tests.
+
+Improve the following points:
+- DependencyInjection
+- Use environment variables to save some string configurations.
 
 
 META
