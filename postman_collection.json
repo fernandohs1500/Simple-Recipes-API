@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "d5368148-9999-4cb5-815c-a9732792fb93",
+		"name": "HelloFresh Recipes API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes"
+					]
+				},
+				"description": "List all recipes\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Recipe Whitout Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Herby Pan-Seared Chicken ",
+							"type": "text"
+						},
+						{
+							"key": "prep_time",
+							"value": "45",
+							"type": "text"
+						},
+						{
+							"key": "difficult",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "bol_vegetarian\t",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes"
+					]
+				},
+				"description": "Create Recipe Wihtout Auth"
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "hellofresh",
+							"type": "text"
+						},
+						{
+							"key": "pass",
+							"value": "hellofresh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "Token auth - By default the expiration time is 30 minutes"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Recipe Whit Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDE5NDY3OTEsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU0MTk0ODU5MSwibmJmIjoxNTQxOTQ2NzkwLCJkYXRhIjp7ImlkIjoxLCJsb2dpbiI6ImhlbGxvZnJlc2gifX0.XVQiamnOxpP9GKQRy9DT9Qk3BNhghSlVFlpUHkOlM24",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Herby Pan-Seared Chicken ",
+							"type": "text"
+						},
+						{
+							"key": "prep_time",
+							"value": "45",
+							"type": "text"
+						},
+						{
+							"key": "difficult",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "bol_vegetarian",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recipes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes"
+					]
+				},
+				"description": "Create Recipe Wihtout Auth"
+			},
+			"response": []
+		},
+		{
+			"name": "List all recipes with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/recipes/page/1/per/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes",
+						"page",
+						"1",
+						"per",
+						"2"
+					]
+				},
+				"description": "List all recipes with pagination\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Recipe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/recipes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes",
+						"1"
+					]
+				},
+				"description": "Get a specific recipe"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDE5NDY3OTEsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU0MTk0ODU5MSwibmJmIjoxNTQxOTQ2NzkwLCJkYXRhIjp7ImlkIjoxLCJsb2dpbiI6ImhlbGxvZnJlc2gifX0.XVQiamnOxpP9GKQRy9DT9Qk3BNhghSlVFlpUHkOlM24",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Alter Herby Pan-Seared",
+							"type": "text"
+						},
+						{
+							"key": "prep_time",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "difficult",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "bol_vegetarian",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recipes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes",
+						"1"
+					]
+				},
+				"description": "Update Recipe"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDE5NDg2MjYsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU0MTk1MDQyNiwibmJmIjoxNTQxOTQ4NjI1LCJkYXRhIjp7ImlkIjoxLCJsb2dpbiI6ImhlbGxvZnJlc2gifX0.d8kR6dNNBqGyNtJ82A4rc3k9gJduyXdwx-u_M-eAhYw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/recipes/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes",
+						"6"
+					]
+				},
+				"description": "Delete a recipe"
+			},
+			"response": []
+		},
+		{
+			"name": "Rate a recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDE5NDg2MjYsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU0MTk1MDQyNiwibmJmIjoxNTQxOTQ4NjI1LCJkYXRhIjp7ImlkIjoxLCJsb2dpbiI6ImhlbGxvZnJlc2gifX0.d8kR6dNNBqGyNtJ82A4rc3k9gJduyXdwx-u_M-eAhYw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/rate/4/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"rate",
+						"4",
+						"3"
+					]
+				},
+				"description": "Rate a recipe"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rates Without pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/rates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"rates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rates with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/rates/page/1/per/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"rates",
+						"page",
+						"1",
+						"per",
+						"2"
+					]
+				},
+				"description": "Get Rates with pagination"
+			},
+			"response": []
+		},
+		{
+			"name": "Search a Recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NDE5NDg2MjYsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU0MTk1MDQyNiwibmJmIjoxNTQxOTQ4NjI1LCJkYXRhIjp7ImlkIjoxLCJsb2dpbiI6ImhlbGxvZnJlc2gifX0.d8kR6dNNBqGyNtJ82A4rc3k9gJduyXdwx-u_M-eAhYw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"name\": \"Alter\",\n  \"prep_time\": 30,\n  \"difficult\": 3,\n  \"bol_vegetarian\": true\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost/recipes/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recipes",
+						"search"
+					]
+				},
+				"description": "Search a Recipe"
+			},
+			"response": []
+		}
+	]
+}

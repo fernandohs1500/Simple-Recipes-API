@@ -1,0 +1,11 @@
+{
+  "name": "Api - Recipes",
+  "version": "0.1.0",
+  "description": "This api describe the endpoints of the application",
+  "title": "Fernando Henrique - Api Recipe",
+  "url" : "https://localhost",
+  "template": {
+  	"forceLanguage": "en",
+	"withCompare": false
+  }
+}
